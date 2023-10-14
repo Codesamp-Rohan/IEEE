@@ -28,6 +28,18 @@ body {
   --black: #000;
   --white: #fff;
 }
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  transition: 0.4s ease;
+  opacity: 0;
+}
+.active {
+  position: relative;
+  transform: translateY(0px);
+  transition: 0.4s ease;
+  opacity: 1 !important;
+}
 .page1 {
   width: 100%;
   height: 100vh;
@@ -222,6 +234,9 @@ nav .logoBtn:nth-child(2) img {
   overflow: hidden;
   transition: 0.3s;
 }
+.active {
+  opacity: 1;
+}
 .card-content {
   position: absolute;
   bottom: 0%;
@@ -231,7 +246,7 @@ nav .logoBtn:nth-child(2) img {
   gap: 20px;
   display: flex;
   flex-direction: column;
-  transform: translateY(75%);
+  transform: translateY(100%);
   transition: all 0.3s;
 }
 .card:hover {
@@ -295,11 +310,12 @@ nav .logoBtn:nth-child(2) img {
   padding: 50px 10px;
 }
 .page4-content img {
-  /* padding: 50px; */
   width: 100%;
   height: 400px;
   grid-column: span 2;
+  padding: 50px 10px;
 }
 .page4-content button {
-  margin-top: 50px;
+  margin-top: 0px;
+  margin-left: 10px;
 }

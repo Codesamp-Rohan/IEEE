@@ -61,7 +61,24 @@ window.addEventListener("scroll", function () {
     page.style.height = "100vh";
   }
 });
+function scrollReveal() {
+  window.addEventListener("scroll", revealItem);
+  function revealItem() {
+    const reveal = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveal.length; i++) {
+      var windowHeight = window.innerHeight;
+      var revealTop = reveal[i].getBoundingClientRect().top;
+      var revealPoint = 200;
+      if (revealTop < windowHeight - revealPoint) {
+        reveal[i].classList.add("active");
+      } else {
+        reveal[i].classList.remove("active");
+      }
+    }
+  }
+}
 slider();
 cursorHover();
 pageChange();
 logoBackBtn();
+scrollReveal();
