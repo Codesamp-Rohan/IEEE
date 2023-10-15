@@ -82,3 +82,40 @@ cursorHover();
 pageChange();
 logoBackBtn();
 scrollReveal();
+
+function inspiration() {
+  document.addEventListener("DOMContentLoaded", function () {
+    const slider = document.querySelector(".slider");
+    const slides = document.querySelectorAll(".slide");
+    const prevButton = document.getElementById("prev");
+    const nextButton = document.getElementById("next");
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      if (index < 0) {
+        currentIndex = slides.length - 1;
+      } else if (index >= slides.length) {
+        currentIndex = 0;
+      }
+
+      const offset = currentIndex * -100;
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+
+    nextButton.addEventListener("click", nextSlide);
+    prevButton.addEventListener("click", prevSlide);
+
+    showSlide(currentIndex);
+  });
+}
+inspiration();
