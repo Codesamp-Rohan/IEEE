@@ -1,6 +1,10 @@
 const cursor = document.querySelector(".cursor");
 const page = document.querySelector(".page1");
 
+// window.addEventListener("load", function () {
+//   this.document.querySelector(".loaderPage").style.height = "0vh";
+//   this.document.querySelector(".loader").style.display = "none";
+// });
 function slider() {
   const slider = document.querySelector(".page1");
   const sections = document.querySelectorAll("section");
@@ -77,12 +81,6 @@ function scrollReveal() {
     }
   }
 }
-slider();
-cursorHover();
-pageChange();
-logoBackBtn();
-scrollReveal();
-
 function inspiration() {
   document.addEventListener("DOMContentLoaded", function () {
     const slider = document.querySelector(".slider");
@@ -118,4 +116,9 @@ function inspiration() {
     showSlide(currentIndex);
   });
 }
+slider();
+cursorHover();
+pageChange();
+logoBackBtn();
+scrollReveal();
 inspiration();
