@@ -1,10 +1,15 @@
 const cursor = document.querySelector(".cursor");
 const page = document.querySelector(".page1");
 
-// window.addEventListener("load", function () {
-//   this.document.querySelector(".loaderPage").style.height = "0vh";
-//   this.document.querySelector(".loader").style.display = "none";
-// });
+window.addEventListener("load", function () {
+  const loader = this.document.querySelector(".loaderPage");
+  loader.style.display = "none";
+});
+window.addEventListener("scroll", function () {
+  if (window.scrollY === 0) {
+    page.style.height = "100vh";
+  }
+});
 function slider() {
   const slider = document.querySelector(".page1");
   const sections = document.querySelectorAll("section");
@@ -24,6 +29,18 @@ function slider() {
   }
   showSlide(currentSlide);
   setInterval(nextSlide, 2000);
+}
+function menuOpenClose() {
+  const menuBtn = document.querySelector(".menu_btn");
+  const menuDropDown = document.querySelector(".nav_dropdown");
+  const menuClose = document.querySelector(".menu_close");
+  menuBtn.addEventListener("click", function (e) {
+    console.log("click");
+    menuDropDown.style.transform = "translateX(0%)";
+  });
+  menuClose.addEventListener("click", function () {
+    menuDropDown.style.transform = "translateX(-100%)";
+  });
 }
 function cursorHover() {
   const page = document.querySelector(".page1");
@@ -58,13 +75,6 @@ function logoBackBtn() {
     });
   });
 }
-window.addEventListener("scroll", function () {
-  // Check if the user is scrolling up
-  if (window.scrollY === 0) {
-    // If at the top of the page, restore the page height
-    page.style.height = "100vh";
-  }
-});
 function scrollReveal() {
   window.addEventListener("scroll", revealItem);
   function revealItem() {
@@ -116,9 +126,44 @@ function inspiration() {
     showSlide(currentIndex);
   });
 }
+function teamSlider() {
+  const swiper = new Swiper(".swiper", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+
+    breakpoints: {
+      // When window width is >= 768px
+      900: {
+        slidesPerView: 3,
+      },
+      650: {
+        slidesPerView: 2,
+      },
+    },
+  });
+}
 slider();
+menuOpenClose();
 cursorHover();
 pageChange();
 logoBackBtn();
 scrollReveal();
 inspiration();
+teamSlider();

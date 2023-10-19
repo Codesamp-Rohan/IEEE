@@ -64,6 +64,22 @@ body {
     transform: rotate(360deg);
   }
 }
+.social_links {
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  position: fixed;
+  right: 0;
+  top: 90%;
+  transform: translateY(-50%);
+  padding: 20px 20px;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  gap: 10px;
+}
+.social_links img {
+  width: 20px;
+}
 .reveal {
   position: relative;
   transform: translateY(150px);
@@ -183,6 +199,7 @@ nav .logoBtn:nth-child(2) img {
   gap: 40px;
   position: relative;
   display: flex;
+  align-items: center;
 }
 .nav-links a {
   color: #000000 !important;
@@ -192,6 +209,75 @@ nav .logoBtn:nth-child(2) img {
 .nav-img-section {
   display: flex;
   align-items: center;
+}
+.nav-links .nav_button,
+.nav_menu .nav_button {
+  padding: 14px 50px;
+  background-color: transparent;
+  border: 1px solid;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.nav-links .nav_button:hover,
+.nav_menu .nav_button:hover {
+  background-color: #ffc925;
+}
+.nav_dropdown {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background-color: #ffc925;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: all 1s ease-in-out;
+}
+.menu-nav-links {
+  display: flex;
+  flex-direction: column;
+  font-size: 3.2vw;
+}
+.menu_close {
+  cursor: pointer;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 30px;
+  right: 30px;
+}
+.menu-nav-links a {
+  text-decoration: none;
+  color: #000;
+}
+/* MOBILE NAVBAR */
+.nav_menu {
+  display: none;
+  align-items: center;
+  gap: 40px;
+}
+.menu_btn {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+.menu_btn img {
+  width: 100%;
+}
+@media screen and (max-width: 950px) {
+  .nav_menu {
+    display: flex;
+  }
+  .nav_dropdown {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+  }
 }
 .page2 h1 {
   font-size: 6vw;
@@ -372,41 +458,34 @@ nav .logoBtn:nth-child(2) img {
 }
 .page5 p {
   font-family: light;
-  text-transform: uppercase;
-  text-decoration: underline;
 }
 .benefits {
-  margin-block: 40px;
-  display: grid;
-  grid-template-columns: 60% 40%;
-}
-.page5 .benefits h2 {
-  font-size: 24px;
-  font-family: light;
+  margin-top: 100px;
+  text-align: center;
+  font-size: 3vw !important;
   text-transform: uppercase;
-  padding-block: 10px;
 }
-.page5 .benefits p {
-  font-size: 18px;
-  text-transform: none;
-  font-family: light;
-  text-decoration: none;
-  padding-bottom: 10px;
+.page5-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
 }
-.benefits a {
-  color: #2f54f7;
+.part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-.benefits ul li {
-  font-family: light;
-  width: 70%;
-  list-style-type: none;
-  padding-block: 8px;
+.part img {
+  width: 60px;
 }
-.benefits img {
-  width: 100%;
-  height: auto;
-  position: sticky;
-  top: 15%;
+.part h3 {
+  text-transform: uppercase;
+}
+.part p {
+  text-align: center;
+  width: 80%;
 }
 /* PAGE 6 */
 .page6 {
@@ -474,6 +553,117 @@ nav .logoBtn:nth-child(2) img {
 .next {
   right: 10%;
 }
+/* TEam */
+.swiper {
+  max-width: 1120px;
+  width: 100%;
+  height: 500px;
+  margin-bottom: 200px;
+}
+.swiper-wrapper {
+  width: 100%;
+}
+.swiper-slide {
+  display: flex !important;
+  flex-direction: row !important;
+  margin-block: 40px;
+  height: auto !important;
+}
+.team-card {
+  width: 100%;
+  margin-inline: 30px;
+  position: relative;
+  height: 100%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: 0.2s;
+}
+.team-card:hover {
+  scale: 1.05;
+  box-shadow: 0px 0px 20px #5252528c;
+}
+.team-image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #2f54f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #ffc925;
+  object-fit: cover;
+}
+.team-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 10px 60px 10px;
+  gap: 10px;
+}
+.team-content h3 {
+  font-size: 24px;
+}
+.team-content p {
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.github {
+  position: absolute;
+  bottom: 6px;
+  left: 10px;
+}
+.logo {
+  width: 30px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #2f54f7 !important;
+}
+.swiper-button-next {
+  padding-left: 100px !important;
+  z-index: 1000;
+  position: absolute;
+}
+.swiper-button-prev {
+  padding-right: 100px !important;
+  z-index: 1000;
+  position: absolute;
+}
+.swiper-pagination-bullet-active {
+  background-color: #ffc925 !important;
+}
+@media screen and (max-width: 650px) {
+  .team-card {
+    width: 50%;
+  }
+  .swiper-slide {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 450px) {
+  .team-card {
+    width: 100%;
+  }
+}
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/* PAGE 7 */
 .page7 {
   width: 100%;
   height: 80vh;
@@ -491,8 +681,10 @@ form {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
+  padding: 100px;
 }
 form input {
   width: 50%;
@@ -523,6 +715,41 @@ form input:focus,
 textarea:focus {
   outline: none;
 }
-.copyRight {
-  padding: 10px 50px;
+/* FOOTER */
+footer {
+  margin-top: 100px;
+  width: 100%;
+  background-color: #ffc925;
+  padding: 20px;
+}
+.footer_heading {
+  display: flex;
+  align-items: center;
+}
+.footer_heading img {
+  width: 100px;
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 40%;
+  padding: 30px;
+}
+.footer-content p {
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.link-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.link-area a {
+  text-decoration: none;
+  color: #9a7814;
+}
+footer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
