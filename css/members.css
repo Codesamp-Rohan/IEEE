@@ -1,0 +1,65 @@
+nav {
+  position: sticky;
+  top: 0;
+}
+.team22 {
+  position: relative;
+  margin-inline: 50px;
+}
+.team22 h1 {
+  font-size: 6vw;
+}
+.team22--section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 300px);
+  gap: 10px;
+  margin-block: 50px;
+}
+.team22--card {
+  border: 1px solid;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--theme);
+  transition: all 0.3s;
+}
+.team22--card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 20px #0000005e;
+}
+.team22--card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--subtheme);
+}
+.team22--card-content {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team22--card-content h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+}
+.team22--card-content h3 span {
+  text-transform: capitalize;
+}
+.team22--card-content img {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 0px;
+  border: 0.1px solid var(--subtheme);
+}
+.team22--card-content p {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--subtheme);
+}

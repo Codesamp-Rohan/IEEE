@@ -1,0 +1,30 @@
+@font-face {
+  font-family: bold;
+  src: url(./fonts/Lato-Bold.ttf);
+}
+@font-face {
+  font-family: light;
+  src: url(./fonts/Lato-Light.ttf);
+}
+@font-face {
+  font-family: regular;
+  src: url(./fonts/Lato-Regular.ttf);
+}
+@font-face {
+  font-family: thin;
+  src: url(./fonts/Lato-Thin.ttf);
+}
+@font-face {
+  font-family: romanBold;
+  src: url(./fonts/times\ new\ roman\ bold.ttf);
+}
+@font-face {
+  font-family: roman;
+  src: url(./fonts/times\ new\ roman.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: regular;
+}

@@ -1,5 +1,6 @@
 const cursor = document.querySelector(".cursor");
 const page = document.querySelector(".page1");
+const page1_content = document.querySelectorAll(".page1-content");
 
 window.addEventListener("load", function () {
   const loader = this.document.querySelector(".loaderPage");
@@ -7,7 +8,11 @@ window.addEventListener("load", function () {
 });
 window.addEventListener("scroll", function () {
   if (window.scrollY === 0) {
+    cursor.style.scale = "1";
     page.style.height = "100vh";
+    page1_content.forEach((elem) => {
+      elem.style.opacity = "1";
+    });
   }
 });
 function slider() {
@@ -63,15 +68,10 @@ function cursorHover() {
 function pageChange() {
   cursor.addEventListener("click", function (e) {
     e.preventDefault();
+    cursor.style.scale = "0";
     page.style.height = "0vh";
-  });
-}
-function logoBackBtn() {
-  const logoBtn = document.querySelectorAll(".logoBtn");
-  logoBtn.forEach((e) => {
-    e.addEventListener("click", function (elem) {
-      elem.preventDefault();
-      page.style.height = "100vh";
+    page1_content.forEach((elem) => {
+      elem.style.opacity = "0";
     });
   });
 }
@@ -163,7 +163,6 @@ slider();
 menuOpenClose();
 cursorHover();
 pageChange();
-logoBackBtn();
 scrollReveal();
 inspiration();
 teamSlider();
