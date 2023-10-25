@@ -30,7 +30,7 @@
 }
 body {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 button:hover {
   background-color: #00629b !important;
@@ -211,7 +211,7 @@ nav .logoBtn:nth-child(2) img {
 .nav-links a {
   color: #000000 !important;
   text-decoration: none;
-  cursor: pointer;
+  cursor: pointer !important;
 }
 .nav-img-section {
   display: flex;
@@ -231,6 +231,35 @@ nav .logoBtn:nth-child(2) img {
 .nav-links .nav_button:hover,
 .nav_menu .nav_button:hover {
   background-color: #ffc925;
+}
+.dropdown {
+  width: 100%;
+  position: fixed;
+  top: 100px;
+  height: 40vh;
+  background-color: pink;
+  background-color: var(--theme);
+  z-index: 100;
+  transform: translateY(-100%);
+  transition: all 0.4s;
+}
+.dropdown span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 40px;
+  display: flex;
+}
+.dropdown span a {
+  color: #46bcff;
+  text-decoration: none;
+  font-size: 24px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.dropdown span a:hover {
+  color: var(--subtheme);
 }
 .nav_dropdown {
   position: fixed;
@@ -772,4 +801,58 @@ footer img {
 }
 .link-area a:hover {
   color: var(--subtheme);
+}
+
+/* Responsive */
+@media screen and (max-width: 1050px) {
+  .page2,
+  .page3,
+  .page4 {
+    margin-inline: 50px;
+  }
+  .event-cards {
+    gap: 20px;
+  }
+  .card-content {
+    transform: translateY(0px);
+  }
+  .bgAbout {
+    display: none;
+  }
+  .social_links {
+    display: none;
+  }
+  .page5 .page5-section {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 300px);
+  }
+  .cursor {
+    display: none;
+  }
+  .slider-container {
+    max-width: 400px;
+  }
+  .slide h1 {
+    font-size: 20px;
+  }
+  .slide p {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 950px) {
+  .page2-content span span p {
+    font-size: 14px;
+  }
+  .exploreBtn {
+    font-size: 17px;
+    font-weight: 900;
+  }
+  .event-cards {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 500px);
+  }
+  .event-cards .card {
+    /* max-width: 350px; */
+    margin: 30px;
+  }
 }

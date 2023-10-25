@@ -11,7 +11,7 @@ window.addEventListener("scroll", function () {
     cursor.style.scale = "1";
     page.style.height = "100vh";
     page1_content.forEach((elem) => {
-      elem.style.opacity = "1";
+      elem.style.display = "block";
     });
   }
 });
@@ -71,7 +71,7 @@ function pageChange() {
     cursor.style.scale = "0";
     page.style.height = "0vh";
     page1_content.forEach((elem) => {
-      elem.style.opacity = "0";
+      elem.style.display = "none";
     });
   });
 }
@@ -159,6 +159,23 @@ function teamSlider() {
     },
   });
 }
+function teamDropDown() {
+  const teamSpan = document.querySelector(".nav--team");
+  const dropdownBox = document.querySelector(".dropdown");
+  teamSpan.addEventListener("mouseenter", function (e) {
+    dropdownBox.style.transform = `translateY(0%)`;
+    console.log("Entered");
+  });
+  dropdownBox.addEventListener("mouseleave", function (elem) {
+    dropdownBox.style.transform = "translateY(-100%)";
+  });
+}
+function smoothScroll() {
+  document
+    .querySelector(".team2023")
+    .getAttribute("href")
+    .scrollIntoView({ behavior: "smooth" });
+}
 slider();
 menuOpenClose();
 cursorHover();
@@ -166,3 +183,5 @@ pageChange();
 scrollReveal();
 inspiration();
 teamSlider();
+teamDropDown();
+smoothScroll();
