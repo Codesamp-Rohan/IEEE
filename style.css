@@ -103,9 +103,34 @@ button:hover {
   height: 100vh;
   position: relative;
   display: flex;
-  background-color: var(--black);
+  background-color: transparent;
   transition: all 1s ease-in-out;
   z-index: 150;
+  overflow: hidden;
+}
+.parallax-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: brightness(60%);
+}
+.part:hover {
+  box-shadow: 0px 0px 5px #e0e0e0;
+  border-radius: 5px;
+}
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://api.time.com/wp-content/uploads/2017/02/mississippi-state-capitol.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
 }
 .comeback-msg {
   position: absolute;
@@ -356,13 +381,6 @@ nav .logoBtn:nth-child(2) img {
   width: 50%;
   object-fit: cover;
 }
-.bgAbout {
-  font-size: 10vw !important;
-  position: absolute;
-  top: -10%;
-  left: -4%;
-  color: #d5d5d522;
-}
 .page3 {
   height: 100%;
   position: relative;
@@ -517,6 +535,7 @@ nav .logoBtn:nth-child(2) img {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  transition: all 0.3s;
 }
 .part img {
   width: 60px;
@@ -536,10 +555,7 @@ nav .logoBtn:nth-child(2) img {
 }
 .page6 h1 {
   font-size: 6vw;
-}
-.page6 .bgAbout {
-  top: -1%;
-  left: 3%;
+  text-align: center;
 }
 .slider-container {
   max-width: 600px;
@@ -720,6 +736,7 @@ nav .logoBtn:nth-child(2) img {
 }
 .page7 h1 {
   font-size: 6vw;
+  text-align: center;
 }
 form {
   width: 100%;
@@ -838,6 +855,10 @@ footer img {
   .slide p {
     font-size: 16px;
   }
+  form input,
+  form textarea {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 950px) {
   .page2-content span span p {
@@ -854,5 +875,111 @@ footer img {
   .event-cards .card {
     /* max-width: 350px; */
     margin: 30px;
+  }
+  .benefits {
+    font-size: 5vw !important;
+  }
+  .card-content h1 {
+    font-weight: 100;
+  }
+}
+@media screen and (max-width: 850px) {
+  .event-cards .card {
+    margin: 0px;
+  }
+  .footer-content {
+    grid-template-columns: 30% 30% 40%;
+    grid-template-rows: repeat(2, auto);
+  }
+  footer {
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .footer_img {
+    display: none;
+  }
+}
+@media screen and (max-width: 750px) {
+  .page2-content img {
+    display: none;
+  }
+  .page2-content .content-span {
+    width: 80%;
+  }
+  .page2 h1,
+  .page3 > h1,
+  .page4 h1 {
+    font-size: 10vw;
+  }
+  .page2-content span span p {
+    color: #6e6e6e;
+  }
+}
+@media screen and (max-width: 650px) {
+  .page7 h1,
+  .swiper-heading,
+  .page6 > h1 {
+    font-size: 9vw;
+  }
+  .event-cards {
+    justify-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 500px);
+  }
+  .card {
+    width: 70%;
+  }
+  .page5 .page5-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 300px);
+  }
+  form {
+    padding: 50px 0px;
+  }
+  .page2-content {
+    justify-content: center;
+  }
+  .page2-content .content-span {
+    align-items: center;
+  }
+  .page2-content span span {
+    align-items: center;
+  }
+  .page2-content span span p {
+    text-align: center;
+  }
+  .page1 span {
+    font-weight: 900 !important;
+  }
+  .page2 h1,
+  .page3 > h1,
+  .page4 h1 {
+    text-align: center;
+  }
+  .page5 {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  .page2-content .content-span {
+    width: 100%;
+  }
+  .card {
+    width: 90%;
+  }
+  .page5 .page5-section {
+    grid-template-rows: repeat(6, 240px);
+  }
+  .page6 button {
+    transform: translateY(0%);
+  }
+  .swiper-button-next,
+  .swiper-rtl .swiper-button-prev {
+    right: var(--swiper-navigation-sides-offset, 50px) !important;
+  }
+  .swiper-button-prev,
+  .swiper-rtl .swiper-button-next {
+    left: var(--swiper-navigation-sides-offset, 50px) !important;
   }
 }

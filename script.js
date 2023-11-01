@@ -2,6 +2,13 @@ const cursor = document.querySelector(".cursor");
 const page = document.querySelector(".page1");
 const page1_content = document.querySelectorAll(".page1-content");
 
+const parallaxBg = document.querySelector(".parallax-bg");
+window.addEventListener("scroll", function () {
+  const scrollY = window.scrollY;
+  const translateY = -scrollY * 0.4; // Adjust the factor to control the parallax speed
+  parallaxBg.style.transform = `translate3d(0, ${translateY}px, 0)`;
+});
+
 window.addEventListener("load", function () {
   const loader = this.document.querySelector(".loaderPage");
   loader.style.display = "none";
