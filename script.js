@@ -1,8 +1,10 @@
 const cursor = document.querySelector(".cursor");
+const mobileCursor = document.querySelector(".mobile--cursor");
 const page = document.querySelector(".page1");
 const page1_content = document.querySelectorAll(".page1-content");
 
 const parallaxBg = document.querySelector(".parallax-bg");
+
 window.addEventListener("scroll", function () {
   const scrollY = window.scrollY;
   const translateY = -scrollY * 0.4; // Adjust the factor to control the parallax speed
@@ -22,6 +24,19 @@ window.addEventListener("scroll", function () {
     });
   }
 });
+
+window.addEventListener("resize", () => {
+  const windowWidth = window.innerWidth;
+  console.log("Window width: " + windowWidth);
+  if (windowWidth <= 1100) {
+    cursor.style.display = "none";
+    cursor.style.zIndex = "-1";
+    mobileCursor.style.display = "block";
+  } else {
+    console.log("BIGG");
+  }
+});
+
 function slider() {
   const slider = document.querySelector(".page1");
   const sections = document.querySelectorAll("section");
@@ -70,6 +85,17 @@ function cursorHover() {
   });
   page.addEventListener("mouseleave", function () {
     cursor.style.display = "none";
+  });
+}
+function mobilepageChange() {
+  cursor.addEventListener("click", function (e) {
+    e.preventDefault();
+    mobileCursor.style.scale = "0";
+    page.style.height = "0vh";
+    page1_content.forEach((elem) => {
+      elem.
+      elem.style.display = "none";
+    });
   });
 }
 function pageChange() {
@@ -133,6 +159,34 @@ function inspiration() {
     showSlide(currentIndex);
   });
 }
+function teamDropDown() {
+  const teamSpan = document.querySelector(".nav--team");
+  const dropdownBox = document.querySelector(".dropdown");
+  teamSpan.addEventListener("mouseenter", function (e) {
+    dropdownBox.style.transform = `translateY(0%)`;
+    console.log("Entered");
+  });
+  dropdownBox.addEventListener("mouseleave", function (elem) {
+    dropdownBox.style.transform = "translateY(-100%)";
+  });
+}
+function smoothScroll() {
+  document
+    .querySelector(".team2023")
+    .getAttribute("href")
+    .scrollIntoView({ behavior: "smooth" });
+}
+slider();
+menuOpenClose();
+cursorHover();
+mobilepageChange();
+pageChange();
+scrollReveal();
+inspiration();
+teamDropDown();
+smoothScroll();
+
+// DIFFFERENT ITEM
 function teamSlider() {
   const swiper = new Swiper(".swiper", {
     // Optional parameters
@@ -166,29 +220,4 @@ function teamSlider() {
     },
   });
 }
-function teamDropDown() {
-  const teamSpan = document.querySelector(".nav--team");
-  const dropdownBox = document.querySelector(".dropdown");
-  teamSpan.addEventListener("mouseenter", function (e) {
-    dropdownBox.style.transform = `translateY(0%)`;
-    console.log("Entered");
-  });
-  dropdownBox.addEventListener("mouseleave", function (elem) {
-    dropdownBox.style.transform = "translateY(-100%)";
-  });
-}
-function smoothScroll() {
-  document
-    .querySelector(".team2023")
-    .getAttribute("href")
-    .scrollIntoView({ behavior: "smooth" });
-}
-slider();
-menuOpenClose();
-cursorHover();
-pageChange();
-scrollReveal();
-inspiration();
 teamSlider();
-teamDropDown();
-smoothScroll();

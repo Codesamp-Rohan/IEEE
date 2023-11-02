@@ -821,6 +821,7 @@ footer img {
 }
 
 /* Responsive */
+
 @media screen and (max-width: 1050px) {
   .page2,
   .page3,
@@ -1007,4 +1008,11 @@ footer img {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
   }
+}
+.mobile--cursor {
+  position: absolute !important;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
 }
