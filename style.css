@@ -916,6 +916,14 @@ footer img {
     color: #6e6e6e;
   }
 }
+@media screen and (max-width: 700px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .link-area {
+    margin: 30px;
+  }
+}
 @media screen and (max-width: 650px) {
   .page7 h1,
   .swiper-heading,
@@ -989,7 +997,14 @@ footer img {
   }
 }
 @media screen and (max-width: 500px) {
+  .dropdown {
+    background-color: transparent;
+  }
   .nav_button {
-    padding: 14px 34px !important;
+    padding: 10px 24px !important;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
   }
 }
