@@ -961,6 +961,11 @@ footer img {
     text-align: center;
   }
 }
+@media screen and (max-width: 600px) {
+  nav {
+    padding-inline: 20px;
+  }
+}
 @media screen and (max-width: 550px) {
   .page2-content .content-span {
     width: 100%;
@@ -981,5 +986,10 @@ footer img {
   .swiper-button-prev,
   .swiper-rtl .swiper-button-next {
     left: var(--swiper-navigation-sides-offset, 50px) !important;
+  }
+}
+@media screen and (max-width: 500px) {
+  .nav_button {
+    padding: 14px 34px !important;
   }
 }
