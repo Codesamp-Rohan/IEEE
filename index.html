@@ -43,7 +43,10 @@
       <div class="parallax-bg"></div>
       <a href="" class="cursor">
         <button class="move-down">
-          <img src="./images/down-arrow.png" alt="" />
+          <img
+            src="./images/down-arrow.png"
+            data-src="./images/down-arrow.png"
+            alt="" />
         </button>
       </a>
       <a href="" class="mobile--cursor">
@@ -393,7 +396,6 @@
         <div class="swiper-slide">
           <div class="team-card">
             <div class="team-image">
-              b
               <img src="./images/bkbietlogo.jpg" alt="" />
             </div>
             <div class="team-content">
@@ -664,6 +666,43 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
+    <script>
+      // DIFFERENT TEAM
+      function teamSlider() {
+        const swiper = new Swiper(".swiper", {
+          // Optional parameters
+          direction: "horizontal",
+          loop: true,
+
+          // If we need pagination
+          pagination: {
+            el: ".swiper-pagination",
+          },
+
+          // Navigation arrows
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+
+          // And if we need scrollbar
+          scrollbar: {
+            el: ".swiper-scrollbar",
+          },
+
+          breakpoints: {
+            // When window width is >= 768px
+            900: {
+              slidesPerView: 3,
+            },
+            650: {
+              slidesPerView: 2,
+            },
+          },
+        });
+      }
+      teamSlider();
+    </script>
   </body>
 </html>
 

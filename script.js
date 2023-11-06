@@ -93,8 +93,7 @@ function mobilepageChange() {
     mobileCursor.style.scale = "0";
     page.style.height = "0vh";
     page1_content.forEach((elem) => {
-      elem.
-      elem.style.display = "none";
+      elem.elem.style.display = "none";
     });
   });
 }
@@ -176,6 +175,24 @@ function smoothScroll() {
     .getAttribute("href")
     .scrollIntoView({ behavior: "smooth" });
 }
+function lazyLoad() {
+  function lazyLoadImage(target) {
+    const io = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        else {
+          const img = entry.target;
+          const datasrc = img.getAttribute("data-src");
+          img.getAttribute("src", datasrc);
+          observer.unobserve(img);
+        }
+      });
+    });
+    io.observe(target);
+  }
+  const lazyImages = document.querySelector("img[loading='img']");
+  lazyImages.forEach(lazyLoadImage);
+}
 slider();
 menuOpenClose();
 cursorHover();
@@ -185,39 +202,4 @@ scrollReveal();
 inspiration();
 teamDropDown();
 smoothScroll();
-
-// DIFFFERENT ITEM
-function teamSlider() {
-  const swiper = new Swiper(".swiper", {
-    // Optional parameters
-    direction: "horizontal",
-    loop: true,
-
-    // If we need pagination
-    pagination: {
-      el: ".swiper-pagination",
-    },
-
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
-
-    breakpoints: {
-      // When window width is >= 768px
-      900: {
-        slidesPerView: 3,
-      },
-      650: {
-        slidesPerView: 2,
-      },
-    },
-  });
-}
-teamSlider();
+lazyLoad();
