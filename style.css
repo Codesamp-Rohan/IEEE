@@ -324,9 +324,12 @@ nav .logoBtn:nth-child(2) img {
 .menu_btn {
   width: 40px;
   height: 40px;
-  background-color: transparent;
+  background-color: transparent !important;
   border: 0px;
   cursor: pointer;
+}
+.menu_btn:focus {
+  background-color: transparent !important;
 }
 .menu_btn img {
   width: 100%;
