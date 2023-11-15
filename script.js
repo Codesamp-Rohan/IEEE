@@ -1,5 +1,5 @@
 const cursor = document.querySelector(".cursor");
-const mobileCursor = document.querySelector(".mobile--cursor");
+// const mobileCursor = document.querySelector(".mobile--cursor");
 const page = document.querySelector(".page1");
 const page1_content = document.querySelectorAll(".page1-content");
 
@@ -31,7 +31,10 @@ window.addEventListener("resize", () => {
   if (windowWidth <= 1100) {
     cursor.style.display = "none";
     cursor.style.zIndex = "-1";
-    mobileCursor.style.display = "block";
+    // mobileCursor.style.display = "block";
+    window.addEventListener("scroll", function () {
+      page.style.height = "0vh";
+    });
   } else {
     console.log("BIGG");
   }
@@ -69,31 +72,13 @@ function menuOpenClose() {
     menuDropDown.style.transform = "translateX(-100%)";
   });
 }
-function cursorHover() {
-  const page = document.querySelector(".page1");
-  page.addEventListener("mouseenter", function (elem) {
-    cursor.style.display = "block";
-    page.addEventListener("mousemove", function (e) {
-      cursor.animate(
-        {
-          left: e.pageX + "px",
-          top: e.pageY + "px",
-        },
-        { duration: 500, fill: "forwards" }
-      );
-    });
-  });
-  page.addEventListener("mouseleave", function () {
-    cursor.style.display = "none";
-  });
-}
 function mobilepageChange() {
   cursor.addEventListener("click", function (e) {
     e.preventDefault();
-    mobileCursor.style.scale = "0";
+    // mobileCursor.style.scale = "0";
     page.style.height = "0vh";
     page1_content.forEach((elem) => {
-      elem.elem.style.display = "none";
+      elem.style.display = "none";
     });
   });
 }
@@ -170,10 +155,10 @@ function teamDropDown() {
   });
 }
 function smoothScroll() {
-  document
-    .querySelector(".team2023")
-    .getAttribute("href")
-    .scrollIntoView({ behavior: "smooth" });
+  const targetElement = document.querySelector(".team2023");
+  if (targetElement) {
+    targetElement.scrollIntoView({ behavior: "smooth" });
+  }
 }
 function lazyLoad() {
   function lazyLoadImage(target) {
@@ -190,8 +175,26 @@ function lazyLoad() {
     });
     io.observe(target);
   }
-  const lazyImages = document.querySelector("img[loading='img']");
+  const lazyImages = document.querySelectorAll("img[loading='img']");
   lazyImages.forEach(lazyLoadImage);
+}
+function cursorHover() {
+  const page = document.querySelector(".page1");
+  page.addEventListener("mouseenter", function () {
+    cursor.style.display = "block";
+    page.addEventListener("mousemove", function (e) {
+      cursor.animate(
+        {
+          left: e.pageX + "px",
+          top: e.pageY + "px",
+        },
+        { duration: 500, fill: "forwards" }
+      );
+    });
+  });
+  page.addEventListener("mouseleave", function () {
+    cursor.style.display = "none";
+  });
 }
 slider();
 menuOpenClose();

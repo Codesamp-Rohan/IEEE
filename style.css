@@ -89,7 +89,7 @@ button:hover {
 .reveal {
   position: relative;
   transform: translateY(150px);
-  transition: 0.4s ease;
+  transition: 0.8s ease;
   opacity: 0;
 }
 .active {
@@ -387,9 +387,7 @@ nav .logoBtn:nth-child(2) img {
 .page3 {
   height: 100%;
   position: relative;
-  margin-inline: 100px;
-  /* display: flex;
-  align-items: center; */
+  margin-inline: 50px;
   margin-bottom: 200px;
 }
 .page3 .exploreBtn {
@@ -904,6 +902,9 @@ footer img {
   .footer_img {
     display: none;
   }
+  .menu-nav-links {
+    font-size: 40px;
+  }
 }
 @media screen and (max-width: 750px) {
   .page2-content img {
@@ -1011,6 +1012,9 @@ footer img {
   .footer-content {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
+  }
+  nav .logoBtn img {
+    width: 100px;
   }
 }
 .mobile--cursor {

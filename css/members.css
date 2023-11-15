@@ -93,3 +93,8 @@ nav {
   left: 50%;
   transform: translateX(-50%);
 }
+@media screen and (max-width: 1150px) {
+  .t23--section {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
