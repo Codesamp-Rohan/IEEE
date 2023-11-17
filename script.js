@@ -1,9 +1,15 @@
+const anker = document.querySelector(".team2023");
+anker.addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector("#contactForm").scrollIntoView({ behavior: "smooth" });
+});
+//
 const cursor = document.querySelector(".cursor");
-// const mobileCursor = document.querySelector(".mobile--cursor");
 const page = document.querySelector(".page1");
 const page1_content = document.querySelectorAll(".page1-content");
-
 const parallaxBg = document.querySelector(".parallax-bg");
+const dropdown = document.querySelector(".dropdown");
+const teamAnkerBtn = document.querySelector(".anker--team");
 
 window.addEventListener("scroll", function () {
   const scrollY = window.scrollY;
@@ -15,6 +21,7 @@ window.addEventListener("load", function () {
   const loader = this.document.querySelector(".loaderPage");
   loader.style.display = "none";
 });
+//
 window.addEventListener("scroll", function () {
   if (window.scrollY === 0) {
     cursor.style.scale = "1";
@@ -24,22 +31,29 @@ window.addEventListener("scroll", function () {
     });
   }
 });
-
+//
 window.addEventListener("resize", () => {
   const windowWidth = window.innerWidth;
   console.log("Window width: " + windowWidth);
   if (windowWidth <= 1100) {
     cursor.style.display = "none";
     cursor.style.zIndex = "-1";
-    // mobileCursor.style.display = "block";
     window.addEventListener("scroll", function () {
       page.style.height = "0vh";
+    });
+    teamAnkerBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      dropdown.style.transform = "translateY(0%)";
     });
   } else {
     console.log("BIGG");
   }
+  if (windowWidth <= 550) {
+    document.querySelector(".dropdown span").style.flexDirection = "column";
+    document.querySelector(".dropdown span").style.gap = "20px";
+  }
 });
-
+//
 function slider() {
   const slider = document.querySelector(".page1");
   const sections = document.querySelectorAll("section");
