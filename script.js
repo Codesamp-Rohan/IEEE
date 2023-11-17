@@ -10,6 +10,12 @@ const page1_content = document.querySelectorAll(".page1-content");
 const parallaxBg = document.querySelector(".parallax-bg");
 const dropdown = document.querySelector(".dropdown");
 const teamAnkerBtn = document.querySelector(".anker--team");
+const dropdownCloseBtn = document.querySelector(".mobile--cross");
+
+teamAnkerBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  document.querySelector(".nav_dropdown").style.transform = "translateX(-120%)";
+});
 
 window.addEventListener("scroll", function () {
   const scrollY = window.scrollY;
@@ -165,7 +171,11 @@ function teamDropDown() {
     console.log("Entered");
   });
   dropdownBox.addEventListener("mouseleave", function (elem) {
-    dropdownBox.style.transform = "translateY(-100%)";
+    dropdownBox.style.transform = "translateY(-120%)";
+  });
+  dropdownCloseBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdownBox.style.transform = "translateY(-120%)";
   });
 }
 function smoothScroll() {

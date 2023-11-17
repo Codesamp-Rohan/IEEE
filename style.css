@@ -265,8 +265,15 @@ nav .logoBtn:nth-child(2) img {
   background-color: pink;
   background-color: var(--theme);
   z-index: 100;
-  transform: translateY(-100%);
+  transform: translateY(-130%);
   transition: all 0.4s;
+}
+.mobile--cross {
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  cursor: pointer;
+  color: var(--white);
 }
 .dropdown span {
   position: absolute;
@@ -1003,8 +1010,8 @@ footer img {
   }
 }
 @media screen and (max-width: 500px) {
-  .dropdown {
-    background-color: transparent;
+  .dropdown a {
+    color: #ffc925 !important;
   }
   .nav_button {
     padding: 10px 24px !important;
