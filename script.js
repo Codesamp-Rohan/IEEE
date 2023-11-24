@@ -173,6 +173,10 @@ function teamDropDown() {
     e.preventDefault();
     dropdownBox.style.transform = "translateY(-120%)";
   });
+  anker.addEventListener("click", function (e) {
+    e.preventDefault();
+    dropdownBox.style.transform = "translateY(-120%)";
+  });
 }
 function smoothScroll() {
   anker.addEventListener("click", function (e) {
