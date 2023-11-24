@@ -1,8 +1,4 @@
 const anker = document.querySelector(".team2023");
-anker.addEventListener("click", function (e) {
-  e.preventDefault();
-  document.querySelector("#contactForm").scrollIntoView({ behavior: "smooth" });
-});
 //
 const cursor = document.querySelector(".cursor");
 const page = document.querySelector(".page1");
@@ -179,10 +175,12 @@ function teamDropDown() {
   });
 }
 function smoothScroll() {
-  const targetElement = document.querySelector(".team2023");
-  if (targetElement) {
-    targetElement.scrollIntoView({ behavior: "smooth" });
-  }
+  anker.addEventListener("click", function (e) {
+    e.preventDefault();
+    document
+      .querySelector("#contactForm")
+      .scrollIntoView({ behavior: "smooth" });
+  });
 }
 function lazyLoad() {
   function lazyLoadImage(target) {
